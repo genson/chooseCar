@@ -1,0 +1,5 @@
+<p>Choose photo of car: {{randomCarName}}</p>
+
+<div ng-repeat="car in cars" class="car-item">
+	<img ng-src="{{car.imageUrl}}" alt="{{car.name}}" ng-click="checkChoice(car)"/>
+</div>
