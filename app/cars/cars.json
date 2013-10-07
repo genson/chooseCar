@@ -1,0 +1,18 @@
+[
+    {
+        "imageUrl": "img/cars/Ferrari-Enzo.jpg", 
+        "name": "Ferrari Enzo"
+    },
+    {
+        "imageUrl": "img/cars/Ford-Mondeo-ST220.jpg", 
+        "name": "Ford Mondeo ST220"
+    },
+    {
+        "imageUrl": "img/cars/Hyundai-Elantra.jpg", 
+        "name": "Hyundai Elantra"
+    },
+    {
+        "imageUrl": "img/cars/Jeep-Grand-Cherokee.jpg", 
+        "name": "Jeep Grand Cherokee"
+    }
+]
