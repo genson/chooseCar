@@ -7,18 +7,14 @@ function StartGameCtrl( $scope, $http ){
 	$scope.gameEnd = false;
 
 	$http.get('cars/cars.json').success( function( data ) {
-	
-		$scope.carsData = data; // храним тут все имеющие данные машин
-
+		//all cars from json
+		$scope.carsData = data;
 		updateGame( $scope );
-
-		
 	});
 
 	$scope.checkChoice = function( car ) {
 		if ( car.name == $scope.randomCarName ) {
 			alert('Rigth!');
-
 			updateGame( $scope, 50 );
 
 		} else {
@@ -28,14 +24,7 @@ function StartGameCtrl( $scope, $http ){
 	}
 }
 
-
-function updateGame ( $scope, score, numberOfCars ) {
-
-	if ( $scope.gameEnd ) {
-		endGame( $scope );
-		return;
-	}
-
+function updateGame ( $scope, /* optional */ score, numberOfCars ) {
 	var tempArray = [],
 		score = score || 0,
 		numberOfCars = numberOfCars || 4,
@@ -49,13 +38,13 @@ function updateGame ( $scope, score, numberOfCars ) {
 		return;
 	}
 
-	for ( var i = 0, currentLength = $scope.carsData.length; i < numberOfCars; i++ ) {
-		if ( currentLength <= numberOfCars ) {
-			console.log('It is last cars what we have :(');
-			randomNumber = Math.floor( Math.random() * currentLength );
-			$scope.gameEnd = true;
-		}
-		
+	//playing until we have a cars
+	if ( $scope.carsData.length <= numberOfCars ) {
+		randomNumber = Math.floor( Math.random() * $scope.carsData.length );
+		$scope.gameEnd = true;
+	}
+
+	for ( var i = 0; i < numberOfCars; i++ ) {
 		tempArray.push( $scope.carsData.pop() );
 	}
 
