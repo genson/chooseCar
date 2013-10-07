@@ -14,5 +14,25 @@
     {
         "imageUrl": "img/cars/Jeep-Grand-Cherokee.jpg", 
         "name": "Jeep Grand Cherokee"
+    },
+    {
+        "imageUrl": "http://placehold.it/300x250&text=car1", 
+        "name": "car1"
+    },
+    {
+        "imageUrl": "http://placehold.it/300x250&text=car2", 
+        "name": "car2"
+    },
+    {
+        "imageUrl": "http://placehold.it/300x250&text=car3", 
+        "name": "car3"
+    },
+    {
+        "imageUrl": "http://placehold.it/300x250&text=car4", 
+        "name": "car4"
+    },
+    {
+        "imageUrl": "http://placehold.it/300x250&text=car5", 
+        "name": "car5"
     }
 ]
