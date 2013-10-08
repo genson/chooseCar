@@ -1,8 +1,5 @@
 /* app css stylesheet */
-.game-menu { padding: 0; margin: 0 0 0 -75px; list-style-type: none; width: 150px; position: absolute; top: 50px; left: 50%;}
-    .game-menu li a:link,
-    .game-menu li a:visited,
-    .game-menu li a:hover { font-family: Verdana; display: block; background: linear-gradient(to bottom, #fff 0%, #ddd 100%); border-radius: 10px; color: #111;
-        text-decoration: none; line-height: 30px; border: 1px solid #aaa; margin-bottom: 10px; text-align: center;}
-
+.main-menu { margin-top: 10px; text-align: center;}
+    .logo { margin-bottom: 20px;}
+    .main-menu li:last-child a { margin-bottom: 0; }
 .car-item { display: inline-block; width: 300px; cursor: pointer; margin-right: 10px; }
