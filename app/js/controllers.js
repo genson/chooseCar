@@ -39,6 +39,7 @@ function StartGameCtrl( $scope, $http ){
 	
 		//playing until we have a cars
 		if ( $scope.carsData.length <= numberOfCars ) {
+			//show only the remaining cars
 			randomNumber = Math.floor( Math.random() * $scope.carsData.length );
 			$scope.gameEnd = true;
 		}
