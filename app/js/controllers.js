@@ -12,8 +12,8 @@ function StartGameCtrl( $scope, $http ){
 		$scope.updateGame();
 	});
 
-	$scope.checkChoice = function( car ) {
-		if ( car.name == $scope.randomCarName ) {
+	$scope.checkChoice = function( carName ) {
+		if ( carName == $scope.randomCarName ) {
 			alert('Rigth!');
 			$scope.updateGame( 50 );
 
@@ -39,7 +39,10 @@ function StartGameCtrl( $scope, $http ){
 	
 		//playing until we have a cars
 		if ( $scope.carsData.length <= numberOfCars ) {
+
 			//show only the remaining cars
+			numberOfCars = $scope.carsData.length;
+			
 			randomNumber = Math.floor( Math.random() * $scope.carsData.length );
 			$scope.gameEnd = true;
 		}

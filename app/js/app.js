@@ -9,7 +9,7 @@
 //     $routeProvider.otherwise({redirectTo: '/view1'});
 //   }]);
 
-var myApp = angular.module('chooseCar', [])
+var myApp = angular.module('chooseCar', ['ngRoute', 'ngTouch'])
 	.config(['$routeProvider', function( $routeProvider ) {
 		$routeProvider.when('/game', { templateUrl: 'partials/startGame.html', controller: 'StartGameCtrl'});
 		$routeProvider.when('/records', { templateUrl: 'partials/records.html', controller: 'RecordsCtrl'});
