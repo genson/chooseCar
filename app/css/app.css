@@ -2,4 +2,4 @@
 .main-menu { margin-top: 10px; text-align: center;}
     .logo { margin-bottom: 20px;}
     .main-menu li:last-child a { margin-bottom: 0; }
-.car-item { display: inline-block; width: 300px; cursor: pointer; margin-right: 10px; }
+.car-item { cursor: pointer; margin-bottom: 10px; }

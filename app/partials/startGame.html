@@ -1,6 +1,7 @@
-<p>Your score: {{userScore}}. Best score: {{bestScore}}</p>
-<p>Choose photo of car: {{randomCarName}}</p>
-
-<div ng-repeat="car in cars" class="car-item ">
-	<img ng-src="{{car.imageUrl}}" alt="{{car.name}}" ng-click="checkChoice(car.name)"/>
+<div class="row ">
+	<div class="panel"><p>Your score: {{userScore}}. Best score: {{bestScore}}</p>
+		<p>Choose photo of car: {{randomCarName}}</p></div>
+	<div ng-repeat="car in cars" class="large-3 columns small-6 car-item">
+		<img ng-src="{{car.imageUrl}}" alt="{{car.name}}" ng-click="checkChoice(car.name)"/>
+	</div>
 </div>
