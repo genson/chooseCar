@@ -4,3 +4,4 @@
     .main-menu li:last-child a { margin-bottom: 0; }
 .car-item { cursor: pointer; }
 	.car-item img { width: 100%;}
+.progress { height: 10px;}
