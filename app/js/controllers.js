@@ -4,8 +4,15 @@
 function StartGameCtrl( $scope, $http, $location ){
 	$scope.userScore = 0;
 	$scope.bestScore = localStorage.getItem("bestScore") || 0;
-	$scope.attemps = 3;
-	$scope.gameEnd = false;
+	$scope.attempts = 3;
+	var gameEnd = false,
+		endOfAllCars = false,
+		timer;
+
+	$scope.progressbar = {
+		'status' : '',
+		'width' : 0
+	};
 
 	$http.get('cars/cars.json').success( function( data ) {
 		//all cars from json
@@ -13,47 +20,47 @@ function StartGameCtrl( $scope, $http, $location ){
 		$scope.updateGame();
 	});
 
-	$scope.progressbarLength = function( timeForChoose ){
-		var timeForChoose = timeForChoose || 10000;
+	// $scope.progressbarLength = function( timeForChoose ){
+	// 	var timeForChoose = timeForChoose || 10000;
 
-		var timer = setInterval(function(){
-        	$scope.$apply(function() {
-        		var value = $scope.progressbar.width,
-            		type;
+	// 	timer = setInterval(function(){
+	// 		console.log("timer is called");
+
+ //        	$scope.$apply(function() {
+ //        		var value = $scope.progressbar.width,
+ //            		type;
+ //            	$scope.progressbar.width = value + 0.5;
             	
-            	$scope.progressbar.width = value + 0.5;
-            	
-            	if (value < 45) {
-    			  type = 'success';
-    			} else if (value < 70) {
-    			  type = 'info';
-    			} else if (value < 95) {
-    			  type = 'warning';
-    			} else {
-    			  type = 'danger';
-    			}
+ //            	if (value < 45) {
+ //    			  type = 'success';
+ //    			} else if (value < 70) {
+ //    			  type = 'info';
+ //    			} else if (value < 95) {
+ //    			  type = 'warning';
+ //    			} else {
+ //    			  type = 'danger';
+ //    			}
 
-    			$scope.progressbar.status = type;
-        	});
-        	if (  $scope.progressbar.width >= 100 ) {
-        		clearInterval(timer);
+ //    			$scope.progressbar.status = type;
+ //        	});
+ //        	if ( $scope.progressbar.width = 100 ) {
+ //        		clearInterval(timer);
 
-        		$scope.attemps--;
-        		if ( $scope.attemps ) {
-					alert('Fail! ' + $scope.attemps + ' attemps left!');
-        			$scope.updateGame();
-        		} else {
-        			alert('You lose! Your score:' + $scope.userScore);
-        			window.location.href = '#/main';
-        		}
-        	} 
-   		}, timeForChoose / 200);
-	}
-	
-	$scope.progressbar = {
-		'status' : '',
-		'width' : 0
-	}
+ //        		//user don't make a choice
+ //        		$scope.attempts--;
+
+ //        		if ( $scope.attempts > 0 ) {
+	// 				alert('Fail! ' + $scope.attempts + ' attemps left!');
+ //        			$scope.updateGame();
+ //        		} else if ( $scope.attempts == 0 ) {
+ //        			alert('Game over! Your score: ' + $scope.userScore);
+ //        			window.location.href = '#/main';
+ //        		} else {
+ //        			console.log('attempts < 0 WTF!!!');
+ //        		}
+ //        	} 
+ //   		}, timeForChoose / 200);
+	// }
 
 	$scope.checkChoice = function( carName ) {
 		if ( carName == $scope.randomCarName ) {
@@ -63,6 +70,7 @@ function StartGameCtrl( $scope, $http, $location ){
 
 		} else {
 			alert('Fail!');
+			$scope.attempts--;
 			$scope.updateGame();
 		}
 	}
@@ -75,14 +83,14 @@ function StartGameCtrl( $scope, $http, $location ){
 	
 		$scope.userScore += score;
 		$scope.bestScore = ( $scope.userScore > $scope.bestScore ) ? $scope.userScore : $scope.bestScore;
-		$scope.progressbar.width = 0;
+		
 		//$scope.progressbarLength(10000);
 
-		if ( $scope.gameEnd ) {
+		if ( gameEnd || !$scope.attempts) {
 			$scope.endGame();
 			return;
-		}
-	
+		} 
+		
 		//playing until we have a cars
 		if ( $scope.carsData.length <= numberOfCars ) {
 
@@ -90,7 +98,10 @@ function StartGameCtrl( $scope, $http, $location ){
 			numberOfCars = $scope.carsData.length;
 			
 			randomNumber = Math.floor( Math.random() * $scope.carsData.length );
-			$scope.gameEnd = true;
+
+			gameEnd = endOfAllCars = true;
+
+			$scope.endGame();
 		}
 	
 		for ( var i = 0; i < numberOfCars; i++ ) {
@@ -106,7 +117,8 @@ function StartGameCtrl( $scope, $http, $location ){
 	$scope.endGame = function(){
 		localStorage.setItem( 'bestScore', $scope.bestScore );
 		$scope.cars = [];
-		$scope.gameResult = "You lose :(";
+		//$scope.progressbar.width = 0;
+		//if ( endOfAllCars ) $scope.gameResult = "Game over. You won!";
 	}
 
 	
