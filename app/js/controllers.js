@@ -76,7 +76,7 @@ function StartGameCtrl( $scope, $http, $location ){
 		$scope.userScore += score;
 		$scope.bestScore = ( $scope.userScore > $scope.bestScore ) ? $scope.userScore : $scope.bestScore;
 		$scope.progressbar.width = 0;
-		$scope.progressbarLength(1000);
+		//$scope.progressbarLength(10000);
 
 		if ( $scope.gameEnd ) {
 			$scope.endGame();
