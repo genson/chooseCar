@@ -1,38 +1,67 @@
 [
     {
-        "imageUrl": "img/cars/Ferrari-Enzo.jpg", 
-        "name": "Ferrari Enzo"
+        "imageUrl": "img/cars/Audi-Q3.jpg", 
+        "name": "Audi Q3"
     },
     {
-        "imageUrl": "img/cars/Ford-Mondeo-ST220.jpg", 
-        "name": "Ford Mondeo ST220"
+        "imageUrl": "img/cars/Audi-R8.jpg", 
+        "name": "Audi R8"
     },
     {
-        "imageUrl": "img/cars/Hyundai-Elantra.jpg", 
-        "name": "Hyundai Elantra"
+        "imageUrl": "img/cars/Audi-S4.jpg", 
+        "name": "Audi S4"
     },
     {
-        "imageUrl": "img/cars/Jeep-Grand-Cherokee.jpg", 
-        "name": "Jeep Grand Cherokee"
+        "imageUrl": "img/cars/Bentley-Continental_GT.jpg", 
+        "name": "Bentley Continental GT"
     },
     {
-        "imageUrl": "http://placehold.it/300x250&text=car1", 
-        "name": "car1"
+        "imageUrl": "img/cars/Bentley-Mulsanne.jpg", 
+        "name": "Bentley Mulsanne"
     },
     {
-        "imageUrl": "http://placehold.it/300x250&text=car2", 
-        "name": "car2"
+        "imageUrl": "img/cars/BMW-435i_Coupe.jpg", 
+        "name": "BMW 435i Coupe"
     },
     {
-        "imageUrl": "http://placehold.it/300x250&text=car3", 
-        "name": "car3"
+        "imageUrl": "img/cars/BMW-M3.jpg", 
+        "name": "BMW M3"
     },
     {
-        "imageUrl": "http://placehold.it/300x250&text=car4", 
-        "name": "car4"
+        "imageUrl": "img/cars/BMW-X1.jpg", 
+        "name": "BMW X1"
     },
     {
-        "imageUrl": "http://placehold.it/300x250&text=car5", 
-        "name": "car5"
+        "imageUrl": "img/cars/BMW-X6.jpg", 
+        "name": "BMW X6"
+    },
+    {
+        "imageUrl": "img/cars/BMW-Z4.jpg", 
+        "name": "BMW Z4"
+    },
+    {
+        "imageUrl": "img/cars/Bugatti-Veyron_Grand_Sport_Vitesse.jpg", 
+        "name": "Bugatti Veyron"
+    },
+    {
+        "imageUrl": "img/cars/Cadillac-Escalade.jpg", 
+        "name": "Cadillac Escalade"
+    },
+    {
+        "imageUrl": "img/cars/dodge-avenger.jpg", 
+        "name": "Dodge Avenger"
+    },
+    {
+        "imageUrl": "img/cars/Dodge-Challenger.jpg", 
+        "name": "Dodge Challenger"
+    },
+    {
+        "imageUrl": "img/cars/Dodge-Charger_Daytona.jpg", 
+        "name": "Dodge Charger Daytona"
+    },
+    {
+        "imageUrl": "img/cars/Dodge-SRT_Viper_GTS.jpg", 
+        "name": "Dodge SRT Viper GTS"
     }
+    
 ]
