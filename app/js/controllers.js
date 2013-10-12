@@ -5,6 +5,7 @@ function StartGameCtrl( $scope, $http, $location ){
 	$scope.userScore = 0;
 	$scope.bestScore = localStorage.getItem("bestScore") || 0;
 	$scope.attempts = 3;
+
 	var gameEnd = false,
 		endOfAllCars = false,
 		timer;
@@ -19,6 +20,7 @@ function StartGameCtrl( $scope, $http, $location ){
 		$scope.carsData = data;
 		$scope.updateGame();
 	});
+
 
 	// $scope.progressbarLength = function( timeForChoose ){
 	// 	var timeForChoose = timeForChoose || 10000;
@@ -55,9 +57,7 @@ function StartGameCtrl( $scope, $http, $location ){
  //        		} else if ( $scope.attempts == 0 ) {
  //        			alert('Game over! Your score: ' + $scope.userScore);
  //        			window.location.href = '#/main';
- //        		} else {
- //        			console.log('attempts < 0 WTF!!!');
- //        		}
+ //     
  //        	} 
  //   		}, timeForChoose / 200);
 	// }
@@ -81,6 +81,7 @@ function StartGameCtrl( $scope, $http, $location ){
 			numberOfCars = numberOfCars || 4,
 			randomNumber = Math.floor( Math.random() * numberOfCars );
 	
+		//add score and change best score
 		$scope.userScore += score;
 		$scope.bestScore = ( $scope.userScore > $scope.bestScore ) ? $scope.userScore : $scope.bestScore;
 		
@@ -124,10 +125,6 @@ function StartGameCtrl( $scope, $http, $location ){
 	
 }
 
-function AboutCtrl( $scope ) {
-
-}
-
 function RecordsCtrl( ) {
 
 }
@@ -138,5 +135,4 @@ function MainCtrl( ) {
 
 myApp.controller('StartGameCtrl', [ '$scope', '$http', StartGameCtrl])
 	.controller('RecordsCtrl', [ RecordsCtrl])
-	.controller('AboutCtrl', [ AboutCtrl])
 	.controller('MainCtrl', [ MainCtrl]);
