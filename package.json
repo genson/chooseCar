@@ -9,6 +9,7 @@
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-watch": "*",
     "grunt-remove-logging": "*",
-    "grunt-imgo": "~0.1.1"
+    "grunt-imgo": "~0.1.1",
+    "grunt-gh-pages": "~0.8.0"
   }
 }

@@ -75,26 +75,34 @@ module.exports = function (grunt) {
             }
         },
 
-         imgo: {
+        imgo: {
             icons: {
                 src: "app/img/*.*",
                 desc: "build/img/"
             }
+        },
+        
+        'gh-pages': {
+            options: {
+            base: 'app'
+            },
+            src: ['**']
         }
  
  
     });
  
     //подгружаем необходимые плагины
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-remove-logging');
-    grunt.loadNpmTasks('grunt-imgo');
+    // grunt.loadNpmTasks('grunt-contrib-jshint');
+    // grunt.loadNpmTasks('grunt-contrib-concat');
+    // grunt.loadNpmTasks('grunt-contrib-uglify');
+    // grunt.loadNpmTasks('grunt-contrib-cssmin');
+    // grunt.loadNpmTasks('grunt-contrib-watch');
+    // grunt.loadNpmTasks('grunt-remove-logging');
+    // grunt.loadNpmTasks('grunt-imgo');
+    grunt.loadNpmTasks('grunt-gh-pages');
  
     grunt.registerTask('default', ['concat', 'uglify', 'cssmin', 'removelogging']); 
     grunt.registerTask('build', ['jshint', 'imgo', 'concat', 'uglify', 'cssmin', 'removelogging', 'watch']); 
-    grunt.registerTask('test', ['']);  
+    grunt.registerTask('pages', ['gh-pages']);  
 };
