@@ -6,9 +6,7 @@ function StartGameCtrl( $scope, $http, $timeout, $location ){
 	$scope.bestScore = localStorage.getItem("bestScore") || 0;
 	$scope.attempts = 3;
 
-	var gameEnd = false,
-		//endOfAllCars = false,
-		timer;
+	$scope.gameEnd = false;
 
 	$scope.progressbar = {
 		'status' : '',
@@ -21,94 +19,68 @@ function StartGameCtrl( $scope, $http, $timeout, $location ){
 		$scope.updateGame();
 	});
 
-//    $scope.counter = 0;
-//    $scope.onTimeout = function(){
-//        $scope.counter++;
-//        mytimeout = $timeout($scope.onTimeout,1000);
-//    }
-//    var mytimeout = $timeout($scope.onTimeout,1000);
-
-
 
 	$scope.progressbarLength = function( timeForChoose ){
-	    var timeForChoose = timeForChoose || 10000;
-
-        var value = $scope.progressbar.width,
+	    var timeForChoose = timeForChoose || 10000,
+	    	value = $scope.progressbar.width,
             type;
 
-        $scope.progressbar.width += 0.5;
+        $scope.progressbar.width += 5000 / timeForChoose;
 
+        if ( value < 45 ) {
+     		type = 'success';
+     	} else if ( value < 70 ) {
+     		type = 'info';
+     	} else if ( value < 95 ) {
+     		type = 'warning';
+     	} else {
+     		type = 'danger';
+     	}
 
+     	$scope.progressbar.status = type;
 
+        if ( $scope.progressbar.width >= 100 ) {
+      		//user don't make a choice
+         	$scope.attempts--;
 
-			console.log("timer is called");
+         	if ( $scope.attempts > 0 && !$scope.gameEnd) {
+				alert('Fail! ' + $scope.attempts + ' attemps left!');
+				$timeout.cancel(progressbarTimer);
+         		$scope.updateGame();
 
-             	if ( value < 45 ) {
-     			  type = 'success';
-     			} else if ( value < 70 ) {
-     			  type = 'info';
-     			} else if ( value < 95 ) {
-     			  type = 'warning';
-     			} else {
-     			  type = 'danger';
-     			}
+         	} else if ( $scope.attempts == 0 ) {
+                $scope.endGame();
+                  
+            } //else {
+                // 	console.log('WTF!');
+                //     $scope.endGame();
+                //     $timeout.cancel(progressbarTimer);
+                   
+                // }
+        }
 
-     			$scope.progressbar.status = type;
-
-             // watch for width of progressbar
-            $scope.$watch('progressbar',function( value ) {
-                console.log( value.width );
-                if ( value.width == 100 ) {
-                    $timeout.cancel(mytimeout);
-                    console.log('timer was cancelled');
-                }
-            });
-
-
-         	if ( $scope.progressbar.width >= 100 ) {
-
-                console.log('width of progressbar still counting');
-         		//user don't make a choice
-         		$scope.attempts--;
-
-         		if ( $scope.attempts > 0 && !gameEnd) {
-					alert('Fail! ' + $scope.attempts + ' attemps left!');
-         			$scope.updateGame();
-         		} else if ( $scope.attempts == 0 ) {
-
-                    $scope.endGame();
-                    alert('Game over! Your score: ' + $scope.userScore);
-                    $timeout.cancel(mytimeout);
-         			window.location.href = '#/main';
-                } else {
-
-                    $timeout.cancel(mytimeout);
-                    $scope.endGame();
-                    alert( 'You win! ' + $scope.userScore );
-
-                }
-         	}
-
-        if ( !gameEnd ) {
-            mytimeout = $timeout($scope.progressbarLength, 200);
+        if ( !$scope.gameEnd ) {
+        	//need to fix time for progressbar
+        	//call itself for shange length of progressbar
+            progressbarTimer = $timeout( $scope.progressbarLength, 100);
         } else {
-            console.log('trouble here :D');
-            $timeout.cancel(mytimeout);
+            $timeout.cancel(progressbarTimer);
         }
 	};
 
-    var mytimeout = $timeout($scope.progressbarLength, 1);
+	//first start for timer
+    var progressbarTimer = $timeout( $scope.progressbarLength, 1);
 
 	$scope.checkChoice = function( carName ) {
 		if ( carName == $scope.randomCarName ) {
 			alert('Rigth!');
-            $timeout.cancel(mytimeout);
+            $timeout.cancel(progressbarTimer);
 			$scope.updateGame( 50 );
 
 		} else {
-			alert('Fail!');
-            $timeout.cancel(mytimeout);
 			$scope.attempts--;
+			alert('Fail!');
+            $timeout.cancel(progressbarTimer);
 			$scope.updateGame();
 		}
 	};
@@ -119,22 +91,18 @@ function StartGameCtrl( $scope, $http, $timeout, $location ){
 			numberOfCars = numberOfCars || 4,
 			randomNumber = Math.floor( Math.random() * numberOfCars );
 	
-		//add score and change best score
+		//add score
 		$scope.userScore += score;
-		$scope.bestScore = ( $scope.userScore > $scope.bestScore ) ? $scope.userScore : $scope.bestScore;
 
         $scope.progressbar.width = 0;
 
-		if ( gameEnd || !$scope.attempts || !$scope.carsData.length ) {
+		if ( $scope.gameEnd || !$scope.attempts || !$scope.carsData.length ) {
 			$scope.endGame();
 			return;
 		} else {
-            console.log('not end game');
             $scope.progressbarLength(10000);
-        }
+		}
 
-
-		
 		//playing until we have a cars
 		if ( $scope.carsData.length <= numberOfCars ) {
 			//show only the remaining cars
@@ -148,21 +116,19 @@ function StartGameCtrl( $scope, $http, $timeout, $location ){
 	
 		$scope.randomCarName = tempArray[ randomNumber ].name;
 		$scope.cars = tempArray;
-
-
 	};
 
 	$scope.endGame = function(){
+		//check for new bestScore and save to localStorage
+		$scope.bestScore = ( $scope.userScore > $scope.bestScore ) ? $scope.userScore : $scope.bestScore;
 		localStorage.setItem( 'bestScore', $scope.bestScore );
 
+		//clear blocks with cars
 		$scope.cars = [];
-        $timeout.cancel(mytimeout);
-        console.log('Game end');
-		$scope.progressbar.width = 0;
-
-        gameEnd = true;
+        
+        //for hidden block 
+        $scope.gameEnd = true;
 	};
-
 	
 }
 
