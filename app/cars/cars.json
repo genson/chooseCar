@@ -1,67 +1,114 @@
 [
     {
-        "imageUrl": "img/cars/Audi-Q3.jpg",
-        "name": "Audi Q3"
+        "imageUrl": "img/cars/Volvo-XC90.jpg",
+        "name": "Volvo XC90"
     },
     {
-        "imageUrl": "img/cars/Audi-R8.jpg",
-        "name": "Audi R8"
+        "imageUrl": "img/cars/Volvo-S60.jpg",
+        "name": "Volvo S60"
     },
     {
-        "imageUrl": "img/cars/Audi-S4.jpg",
-        "name": "Audi S4"
+        "imageUrl": "img/cars/Volvo-C70.jpg",
+        "name": "Volvo C70"
     },
     {
-        "imageUrl": "img/cars/Bentley-Continental_GT.jpg",
-        "name": "Bentley Continental GT"
+        "imageUrl": "img/cars/Volkswagen-Up.jpg",
+        "name": "Volkswagen Up"
     },
     {
-        "imageUrl": "img/cars/Bentley-Mulsanne.jpg", 
-        "name": "Bentley Mulsanne"
+        "imageUrl": "img/cars/Volkswagen-Polo.jpg",
+        "name": "Volkswagen Polo"
     },
     {
-        "imageUrl": "img/cars/BMW-435i_Coupe.jpg",
-        "name": "BMW 435i Coupe"
+        "imageUrl": "img/cars/Volkswagen-Passat-CC.jpg",
+        "name": "Volkswagen Passat CC"
     },
     {
-        "imageUrl": "img/cars/BMW-M3.jpg",
-        "name": "BMW M3"
+        "imageUrl": "img/cars/Volkswagen-Lavida.jpg",
+        "name": "Volkswagen Lavida"
     },
     {
-        "imageUrl": "img/cars/BMW-X1.jpg",
-        "name": "BMW X1"
+        "imageUrl": "img/cars/Volkswagen-Jetta.jpg",
+        "name": "Volkswagen Jetta"
     },
     {
-        "imageUrl": "img/cars/BMW-X6.jpg",
-        "name": "BMW X6"
+        "imageUrl": "img/cars/Volkswagen-Golf.jpg",
+        "name": "Volkswagen Golf"
     },
     {
-        "imageUrl": "img/cars/BMW-Z4.jpg",
-        "name": "BMW Z4"
+        "imageUrl": "img/cars/Toyota-Yaris.jpg",
+        "name": "Toyota Yaris"
     },
     {
-        "imageUrl": "img/cars/Bugatti-Veyron_Grand_Sport_Vitesse.jpg",
-        "name": "Bugatti Veyron"
+        "imageUrl": "img/cars/Toyota-RAV4.jpg",
+        "name": "Toyota RAV4"
     },
     {
-        "imageUrl": "img/cars/Cadillac-Escalade.jpg",
-        "name": "Cadillac Escalade"
+        "imageUrl": "img/cars/Toyota-Matrix.jpg",
+        "name": "Toyota Matrix"
     },
     {
-        "imageUrl": "img/cars/dodge-avenger.jpg",
-        "name": "Dodge Avenger"
+        "imageUrl": "img/cars/Toyota-Land_Cruiser.jpg",
+        "name": "Toyota Land Cruiser"
     },
     {
-        "imageUrl": "img/cars/Dodge-Challenger.jpg",
-        "name": "Dodge Challenger"
+        "imageUrl": "img/cars/Toyota-Camry.jpg",
+        "name": "Toyota Camry"
     },
     {
-        "imageUrl": "img/cars/Dodge-Charger_Daytona.jpg",
-        "name": "Dodge Charger Daytona"
+        "imageUrl": "img/cars/Toyota-Avensis.jpg",
+        "name": "Toyota Avensis"
     },
     {
-        "imageUrl": "img/cars/Dodge-SRT_Viper_GTS.jpg",
-        "name": "Dodge SRT Viper GTS"
+        "imageUrl": "img/cars/Toyota-86_GTS.jpg",
+        "name": "Toyota 86 GTS"
+    },
+    {
+        "imageUrl": "img/cars/Suzuki-Swift.jpg",
+        "name": "Suzuki Swift"
+    },
+    {
+        "imageUrl": "img/cars/Suzuki-Splash.jpg",
+        "name": "Suzuki Splash"
+    },
+    {
+        "imageUrl": "img/cars/Subaru-Impreza.jpg",
+        "name": "Subaru Impreza"
+    },
+    {
+        "imageUrl": "img/cars/Subaru-Forester.jpg",
+        "name": "Subaru Forester"
+    },
+    {
+        "imageUrl": "img/cars/Subaru-Exiga.jpg",
+        "name": "Subaru Exiga"
+    },
+    {
+        "imageUrl": "img/cars/Subaru-BRZ.jpg",
+        "name": "Subaru BRZ"
+    },
+    {
+        "imageUrl": "img/cars/SsangYong-Korando.jpg",
+        "name": "SsangYong Korando"
+    },
+    {
+        "imageUrl": "img/cars/Skoda-Yeti.jpg",
+        "name": "Skoda Yeti"
+    },
+    {
+        "imageUrl": "img/cars/Skoda-Octavia_RS.jpg",
+        "name": "Skoda Octavia RS"
+    },
+    {
+        "imageUrl": "img/cars/Skoda-Fabia.jpg",
+        "name": "Skoda Fabia"
+    },
+    {
+        "imageUrl": "img/cars/Seat-Leon_Cupra.jpg",
+        "name": "Seat Leon_Cupra"
+    },
+    {
+        "imageUrl": "img/cars/Seat-Ibiza.jpg",
+        "name": "Seat Ibiza"
     }
-
 ]
