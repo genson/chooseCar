@@ -1,67 +1,67 @@
 [
     {
-        "imageUrl": "img/cars/Audi-Q3.jpg", 
-        "name": "Audi Q3"
+        "imageurl": "img/cars/audi-q3.jpg", 
+        "name": "audi q3"
     },
     {
-        "imageUrl": "img/cars/Audi-R8.jpg", 
-        "name": "Audi R8"
+        "imageurl": "img/cars/audi-r8.jpg", 
+        "name": "audi r8"
     },
     {
-        "imageUrl": "img/cars/Audi-S4.jpg", 
-        "name": "Audi S4"
+        "imageurl": "img/cars/audi-s4.jpg", 
+        "name": "audi s4"
     },
     {
-        "imageUrl": "img/cars/Bentley-Continental_GT.jpg", 
-        "name": "Bentley Continental GT"
+        "imageurl": "img/cars/bentley-continental_gt.jpg", 
+        "name": "bentley continental gt"
     },
     {
-        "imageUrl": "img/cars/Bentley-Mulsanne.jpg", 
-        "name": "Bentley Mulsanne"
+        "imageurl": "img/cars/bentley-mulsanne.jpg", 
+        "name": "bentley mulsanne"
     },
     {
-        "imageUrl": "img/cars/BMW-435i_Coupe.jpg", 
-        "name": "BMW 435i Coupe"
+        "imageurl": "img/cars/bmw-435i_coupe.jpg", 
+        "name": "bmw 435i coupe"
     },
     {
-        "imageUrl": "img/cars/BMW-M3.jpg", 
-        "name": "BMW M3"
+        "imageurl": "img/cars/bmw-m3.jpg", 
+        "name": "bmw m3"
     },
     {
-        "imageUrl": "img/cars/BMW-X1.jpg", 
-        "name": "BMW X1"
+        "imageurl": "img/cars/bmw-x1.jpg", 
+        "name": "bmw x1"
     },
     {
-        "imageUrl": "img/cars/BMW-X6.jpg", 
-        "name": "BMW X6"
+        "imageurl": "img/cars/bmw-x6.jpg", 
+        "name": "bmw x6"
     },
     {
-        "imageUrl": "img/cars/BMW-Z4.jpg", 
-        "name": "BMW Z4"
+        "imageurl": "img/cars/bmw-z4.jpg", 
+        "name": "bmw z4"
     },
     {
-        "imageUrl": "img/cars/Bugatti-Veyron_Grand_Sport_Vitesse.jpg", 
-        "name": "Bugatti Veyron"
+        "imageurl": "img/cars/bugatti-veyron_grand_sport_vitesse.jpg", 
+        "name": "bugatti veyron"
     },
     {
-        "imageUrl": "img/cars/Cadillac-Escalade.jpg", 
-        "name": "Cadillac Escalade"
+        "imageurl": "img/cars/cadillac-escalade.jpg", 
+        "name": "cadillac escalade"
     },
     {
-        "imageUrl": "img/cars/dodge-avenger.jpg", 
-        "name": "Dodge Avenger"
+        "imageurl": "img/cars/dodge-avenger.jpg", 
+        "name": "dodge avenger"
     },
     {
-        "imageUrl": "img/cars/Dodge-Challenger.jpg", 
-        "name": "Dodge Challenger"
+        "imageurl": "img/cars/dodge-challenger.jpg", 
+        "name": "dodge challenger"
     },
     {
-        "imageUrl": "img/cars/Dodge-Charger_Daytona.jpg", 
-        "name": "Dodge Charger Daytona"
+        "imageurl": "img/cars/dodge-charger_daytona.jpg", 
+        "name": "dodge charger daytona"
     },
     {
-        "imageUrl": "img/cars/Dodge-SRT_Viper_GTS.jpg", 
-        "name": "Dodge SRT Viper GTS"
+        "imageurl": "img/cars/dodge-srt_viper_gts.jpg", 
+        "name": "dodge srt viper gts"
     }
     
 ]
