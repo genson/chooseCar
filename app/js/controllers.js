@@ -25,8 +25,9 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
             };
 
             $http.get('cars/cars.json').success( function( data ) {
-                //all cars from json
-                $scope.carsData = data;
+                //receive all cars from json and then shuffling
+                $scope.carsData = shuffle( data );
+
                 $scope.updateGame();
             });
 
@@ -72,7 +73,7 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
 
                 if ( !$scope.gameEnd ) {
                     //need to fix time for progressbar
-                    //call itself for shange length of progressbar
+                    //call itself for change length of progressbar
                     progressbarTimer = $timeout( $scope.progressbarLength, 100);
                 } else {
                     $timeout.cancel(progressbarTimer);
@@ -145,3 +146,18 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
     ])
 	.controller('RecordsCtrl', [ RecordsCtrl])
 	.controller('MainCtrl', [ MainCtrl]);
+
+function shuffle( array ) {
+    var i = array.length,
+        j,
+        temp;
+
+    while ( --i ) {
+        j = Math.floor( Math.random() * (i + 1) );
+        temp = array[ i ];
+        array[ i ] = array[ j ];
+        array[ j ] = temp;
+    }
+
+    return array;
+}
