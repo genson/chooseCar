@@ -4,4 +4,22 @@
     .main-menu li:last-child a { margin-bottom: 0; }
 .car-item { cursor: pointer; }
 	.car-item img { width: 100%;}
+
+	.choice-success,
+	.choice-fail {position: relative;}
+
+	.choice-success:after,
+	.choice-fail:after,
+	.choice-success:before,
+	.choice-fail:before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5;}
+
+		.choice-success:after { background: rgba(92, 184, 92, 0.8);}
+		.choice-fail:after { background: rgba(217, 83, 79, 0.8);}
+
+	.choice-success:before,
+	.choice-fail:before { top: 40%; z-index: 10; vertical-align: middle; font-size: 30px; color: #FFF; text-align: center; font-weight: bold; }
+	
+	.choice-success:before { content: 'Right';}
+	.choice-fail:before { content: 'Wrong';}
+
 .progress { height: 10px;}

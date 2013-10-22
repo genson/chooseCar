@@ -15,8 +15,10 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
         function( $scope, $http, $timeout){
             $scope.userScore = 0;
             $scope.bestScore = localStorage.getItem("bestScore") || 0;
-            $scope.attempts = 3;
+            $scope.attempts = 3,
+            $scope.clickedOnCar = false;
 
+            var progressbarTimer;
             $scope.gameEnd = false;
 
             $scope.progressbar = {
@@ -74,26 +76,35 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
                 if ( !$scope.gameEnd ) {
                     //need to fix time for progressbar
                     //call itself for change length of progressbar
-                    progressbarTimer = $timeout( $scope.progressbarLength, 100);
+                  	progressbarTimer = $timeout( $scope.progressbarLength, 100);
                 } else {
                     $timeout.cancel(progressbarTimer);
                 }
             };
 
             //first start for timer
-            var progressbarTimer = $timeout( $scope.progressbarLength, 1);
+            //var progressbarTimer = $timeout( $scope.progressbarLength, 1);
 
             $scope.checkChoice = function( carName ) {
-                if ( carName == $scope.randomCarName ) {
-                    alert('Rigth!');
+            	if ( $scope.clickedOnCar ) return;
+
+            	$scope.clickedOnCar = true;
+
+                if ( carName.name == $scope.randomCarName ) {
+                    carName.flag = "choice-success";
                     $timeout.cancel(progressbarTimer);
-                    $scope.updateGame( 50 );
+                    $timeout(function() {
+                    	$scope.updateGame(50);
+                    	}, 1500);
 
                 } else {
+                	carName.flag = "choice-fail";
                     $scope.attempts--;
-                    alert('Fail!');
+                    
                     $timeout.cancel(progressbarTimer);
-                    $scope.updateGame();
+                    $timeout(function() {
+                    	$scope.updateGame();
+                    	}, 1500);
                 }
             };
 
@@ -107,6 +118,9 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
                 $scope.userScore += score;
 
                 $scope.progressbar.width = 0;
+
+                //set what we not clicked yet
+                $scope.clickedOnCar = false;
 
                 if ( $scope.gameEnd || !$scope.attempts || !$scope.carsData.length ) {
                     $scope.endGame();

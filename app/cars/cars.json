@@ -1,114 +1,142 @@
 [
     {
         "imageUrl": "img/cars/Volvo-XC90.jpg",
-        "name": "Volvo XC90"
+        "name": "Volvo XC90",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Volvo-S60.jpg",
-        "name": "Volvo S60"
+        "name": "Volvo S60",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Volvo-C70.jpg",
-        "name": "Volvo C70"
+        "name": "Volvo C70",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Volkswagen-Up.jpg",
-        "name": "Volkswagen Up"
+        "name": "Volkswagen Up",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Volkswagen-Polo.jpg",
-        "name": "Volkswagen Polo"
+        "name": "Volkswagen Polo",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Volkswagen-Passat-CC.jpg",
-        "name": "Volkswagen Passat CC"
+        "name": "Volkswagen Passat CC",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Volkswagen-Lavida.jpg",
-        "name": "Volkswagen Lavida"
+        "name": "Volkswagen Lavida",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Volkswagen-Jetta.jpg",
-        "name": "Volkswagen Jetta"
+        "name": "Volkswagen Jetta",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Volkswagen-Golf.jpg",
-        "name": "Volkswagen Golf"
+        "name": "Volkswagen Golf",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Toyota-Yaris.jpg",
-        "name": "Toyota Yaris"
+        "name": "Toyota Yaris",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Toyota-RAV4.jpg",
-        "name": "Toyota RAV4"
+        "name": "Toyota RAV4",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Toyota-Matrix.jpg",
-        "name": "Toyota Matrix"
+        "name": "Toyota Matrix",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Toyota-Land_Cruiser.jpg",
-        "name": "Toyota Land Cruiser"
+        "name": "Toyota Land Cruiser",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Toyota-Camry.jpg",
-        "name": "Toyota Camry"
+        "name": "Toyota Camry",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Toyota-Avensis.jpg",
-        "name": "Toyota Avensis"
+        "name": "Toyota Avensis",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Toyota-86_GT.jpg",
-        "name": "Toyota 86 GTS"
+        "name": "Toyota 86 GTS",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Suzuki-Swift.jpg",
-        "name": "Suzuki Swift"
+        "name": "Suzuki Swift",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Suzuki-Splash.jpg",
-        "name": "Suzuki Splash"
+        "name": "Suzuki Splash",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Subaru-Impreza.jpg",
-        "name": "Subaru Impreza"
+        "name": "Subaru Impreza",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Subaru-Forester.jpg",
-        "name": "Subaru Forester"
+        "name": "Subaru Forester",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Subaru-Exiga.jpg",
-        "name": "Subaru Exiga"
+        "name": "Subaru Exiga",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Subaru-BRZ.jpg",
-        "name": "Subaru BRZ"
+        "name": "Subaru BRZ",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/SsangYong-Korando.jpg",
-        "name": "SsangYong Korando"
+        "name": "SsangYong Korando",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Skoda-Yeti.jpg",
-        "name": "Skoda Yeti"
+        "name": "Skoda Yeti",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Skoda-Octavia_RS.jpg",
-        "name": "Skoda Octavia RS"
+        "name": "Skoda Octavia RS",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Skoda-Fabia.jpg",
-        "name": "Skoda Fabia"
+        "name": "Skoda Fabia",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Seat-Leon_Cupra.jpg",
-        "name": "Seat Leon Cupra"
+        "name": "Seat Leon Cupra",
+        "flag": ""
     },
     {
         "imageUrl": "img/cars/Seat-Ibiza.jpg",
-        "name": "Seat Ibiza"
+        "name": "Seat Ibiza",
+        "flag": ""
     }
 ]
