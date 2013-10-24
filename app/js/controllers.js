@@ -18,7 +18,7 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
             $scope.attempts = 3;
             $scope.canClickOnCar = true;
             $scope.gameEnd = false;
-            $scope.timeEnd = false;
+            $scope.timeIsUp = false;
 
             $scope.progressbar = {
                 'status' : '',
@@ -55,15 +55,17 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
                 $scope.progressbar.status = type;
 
                 if ( $scope.progressbar.width >= 100 ) {
+                    $timeout.cancel( progressbarTimer );
+
                     //user don't make a choice
                     $scope.attempts--;
+                    $scope.canClickOnCar = false;
 
                     if ( $scope.attempts > 0 && !$scope.gameEnd) {
-                        $timeout.cancel( progressbarTimer );
 
                         //show warning box
-                        $scope.timeEnd = true;
-                        $scope.canClickOnCar = false;
+                        $scope.timeIsUp = true;
+
                         $timeout( function(){
                             $scope.updateGame();
                         }, 2000);
@@ -87,23 +89,26 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
             	//defence from double choice or clicking when time is up
                 if ( !$scope.canClickOnCar ) return;
 
+                $timeout.cancel( progressbarTimer );
             	$scope.canClickOnCar = false;
 
                 if ( carName.name == $scope.randomCarName ) {
                     carName.flag = "choice-success";
-                    $timeout.cancel( progressbarTimer );
+
+                    //add points depending on the speed of an answer
+                    var score = Math.floor( 100 - $scope.progressbar.width );
+
                     $timeout(function() {
-                    	$scope.updateGame(50);
-                    	}, 2000);
+                    	$scope.updateGame(score);
+                    	}, 1500);
 
                 } else {
                 	carName.flag = "choice-fail";
                     $scope.attempts--;
 
-                    $timeout.cancel( progressbarTimer );
                     $timeout(function() {
                     	$scope.updateGame();
-                    	}, 2000);
+                    	}, 1500);
                 }
             };
 
@@ -116,7 +121,7 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
                 //add score
                 $scope.userScore += score;
 
-                $scope.timeEnd = false;
+                $scope.timeIsUp = false;
                 $scope.progressbar.width = 0;
 
                 //we can make a one choice
@@ -152,7 +157,7 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
                 //clear blocks with cars
                 $scope.cars = [];
 
-                //for hidden block
+                // show/hide blocks when game over
                 $scope.gameEnd = true;
             };
 
