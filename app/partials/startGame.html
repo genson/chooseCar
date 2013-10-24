@@ -18,8 +18,15 @@
 		<div ng-repeat="car in cars" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 car-item {{car.flag}}">
 			<img ng-src="{{car.imageUrl}}" alt="" ng-click="checkChoice(car)" />
 		</div>
-		<div ng-show="gameEnd">
+		<div class="alert alert-info" ng-show="gameEnd">
 			<h2 class="text-center">Game over!</h2>
+			<div class="row form-inline text-center" ng-hide="succesSubmit">
+				<p>Do you want to submit score?</p>
+				<div class="form-group ">
+					<input type="text" class="form-control input-sm" placeholder="Input name..." ng-model="userName" />
+				</div>
+				<button class="btn btn-primary btn-sm" ng-click="submitScore()">Submit score &rarr;</button>
+			</div>
 		</div>
 	</div>
 </div>

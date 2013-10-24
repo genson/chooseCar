@@ -34,6 +34,21 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
                 $scope.updateGame();
             });
 
+            var myRootRef = new Firebase('https://choose.firebaseio.com/ScoreList');
+    //         var	newPush = myRootRef.push();
+				// newPush.setWithPriority({name: 'gena2', rank: 555}, 1200);
+				//console.log(myRootRef.child("name"));
+
+			// myRootRef.on('value', function(snapshot) {
+			// 	var resultList = snapshot.val();
+
+			// 	for ( var x in resultList ) {
+			// 		console.log( resultList[x] );
+			// 	}
+
+			// });
+
+
 
             $scope.progressbarLength = function( timeForChoose ){
                 var timeForChoose = timeForChoose || 10000,
@@ -161,9 +176,31 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
                 $scope.gameEnd = true;
             };
 
+            var myRootRef = new Firebase('https://choose.firebaseio.com/ScoreList'),
+            	newPush = myRootRef.push();
+
+            $scope.submitScore = function(){
+            	var newPush = myRootRef.push();
+
+            	newPush.set({
+            		name: $scope.userName,
+            		score: $scope.userScore
+            	});
+            	$scope.succesSubmit = true;
+            }
+
         }
     ])
-	.controller('RecordsCtrl', [ RecordsCtrl])
+	.controller('RecordsCtrl', [ '$scope', '$http',function( $scope, $http ) {
+		$http.get('https://choose.firebaseio.com/ScoreList.json').success( function( data ) {
+                var tempArray = [];
+                for ( var x in data ) {
+					tempArray.push( data[x]);
+				}
+				
+				$scope.scoreList = tempArray;
+        });
+	}])
 	.controller('MainCtrl', [ MainCtrl]);
 
 function shuffle( array ) {
