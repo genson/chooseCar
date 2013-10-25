@@ -2,11 +2,6 @@
 
 /* Controllers */
 
-
-function RecordsCtrl( ) {
-
-}
-
 function MainCtrl( ) {
 
 }
@@ -33,22 +28,6 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
 
                 $scope.updateGame();
             });
-
-            var myRootRef = new Firebase('https://choose.firebaseio.com/ScoreList');
-    //         var	newPush = myRootRef.push();
-				// newPush.setWithPriority({name: 'gena2', rank: 555}, 1200);
-				//console.log(myRootRef.child("name"));
-
-			// myRootRef.on('value', function(snapshot) {
-			// 	var resultList = snapshot.val();
-
-			// 	for ( var x in resultList ) {
-			// 		console.log( resultList[x] );
-			// 	}
-
-			// });
-
-
 
             $scope.progressbarLength = function( timeForChoose ){
                 var timeForChoose = timeForChoose || 10000,
@@ -176,6 +155,7 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
                 $scope.gameEnd = true;
             };
 
+            //submit score to firebase
             var myRootRef = new Firebase('https://choose.firebaseio.com/ScoreList'),
             	newPush = myRootRef.push();
 
