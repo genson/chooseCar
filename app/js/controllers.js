@@ -2,10 +2,6 @@
 
 /* Controllers */
 
-function MainCtrl( ) {
-
-}
-
 myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
         function( $scope, $http, $timeout){
             $scope.userScore = 0;
@@ -181,7 +177,9 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
 				$scope.scoreList = tempArray;
         });
 	}])
-	.controller('MainCtrl', [ MainCtrl]);
+	.controller('MainCtrl', [ '$scope', function( $scope ) {
+
+	}]);
 
 function shuffle( array ) {
     var i = array.length,

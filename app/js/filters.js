@@ -2,13 +2,6 @@
 
 /* Filters */
 
-// angular.module('myApp.filters', []).
-//   filter('interpolate', ['version', function(version) {
-//     return function(text) {
-//       return String(text).replace(/\%VERSION\%/mg, version);
-//     }
-//   }]);
-
 myApp.filter('orderObjectBy', function(){
  return function(input, attribute) {
     if (!angular.isObject(input)) return input;
