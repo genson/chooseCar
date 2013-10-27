@@ -4,14 +4,14 @@
     	    <div class="panel-heading">
     	      <h3 class="panel-title text-center">Top scores</h3>
     	    </div>
-    	    <div class="panel-body">
-    	      	<table class="table table-striped">
+    	    <div class="panel-body panel-records">
+    	      	<table class="table table-condensed">
     	      		<tr>
     	      			<th>#</th>
     	      			<th>Name</th>
     	      			<th>Score</th>
     	      		</tr>
-    	      		<tr ng-repeat="score in scoreList | orderObjectBy:'score' | limitTo: 5">
+    	      		<tr ng-repeat="score in scoreList | orderObjectBy:'score' | limitTo: 5" ng-class="{success: $first }">
     	      			<td>{{ $index + 1 }}</td>
     	      			<td>{{ score.name }}</td>
     	      			<td>{{ score.score }}</td>
