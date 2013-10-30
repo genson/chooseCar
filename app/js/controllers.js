@@ -2,8 +2,8 @@
 
 /* Controllers */
 
-myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
-        function( $scope, $http, $timeout){
+myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$location',
+        function( $scope, $http, $timeout, $location){
             $scope.userScore = 0;
             $scope.bestScore = localStorage.getItem("bestScore") || 0;
             $scope.attempts = 3;
@@ -151,24 +151,29 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout',
                 $scope.gameEnd = true;
             };
 
-            //submit score to firebase
-            var myRootRef = new Firebase('https://choose.firebaseio.com/ScoreList'),
-            	newPush = myRootRef.push();
-
             $scope.submitScore = function(){
-            	var newPush = myRootRef.push();
-
-            	newPush.set({
+            	
+            	var userResult = {
             		name: $scope.userName,
             		score: $scope.userScore
+            	};
+            
+            	$http.post('https://carsdb.firebaseio.com/ScoreList.json', userResult).success( function() {
+            		//hide submit form
+            		$scope.succesSubmit = true;
             	});
-            	$scope.succesSubmit = true;
-            }
+           
+            };
+
+            $scope.restart = function(){
+                //fixed restart
+               $location.hash('game');
+            };
 
         }
     ])
 	.controller('RecordsCtrl', [ '$scope', '$http',function( $scope, $http ) {
-		$http.get('https://choose.firebaseio.com/ScoreList.json').success( function( data ) {
+		$http.get('https://carsdb.firebaseio.com/ScoreList.json').success( function( data ) {
                 var tempArray = [];
                 for ( var x in data ) {
 					tempArray.push( data[x]);

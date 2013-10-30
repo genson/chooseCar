@@ -20,8 +20,11 @@
 		</div>
 		<div class="alert alert-info" ng-show="gameEnd">
 			<h2 class="text-center">Game over!</h2>
+            <div class="row text-center">
+                <button class="btn btn-primary btn-sm" ng-click="restart()">Restart ?</button>
+            </div>
 			<div class="row form-inline text-center" ng-hide="succesSubmit">
-				<p>Do you want to submit score?</p>
+				<p>or you want to submit score?</p>
 				<div class="form-group ">
 					<input type="text" class="form-control input-sm" placeholder="Input name..." ng-model="userName" />
 				</div>
