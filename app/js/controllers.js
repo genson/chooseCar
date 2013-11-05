@@ -2,8 +2,8 @@
 
 /* Controllers */
 
-myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$location',
-        function( $scope, $http, $timeout, $location){
+myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$location', '$window',
+        function( $scope, $http, $timeout, $location, $window){
             $scope.userScore = 0;
             $scope.bestScore = localStorage.getItem("bestScore") || 0;
             $scope.attempts = 3;
@@ -166,10 +166,8 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$location',
             };
 
             $scope.restart = function(){
-                //fixed restart
-               $location.hash('game');
+                $window.location.reload();
             };
-
         }
     ])
 	.controller('RecordsCtrl', [ '$scope', '$http',function( $scope, $http ) {
