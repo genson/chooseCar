@@ -160,7 +160,7 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$location',
             
             	$http.post('https://carsdb.firebaseio.com/ScoreList.json', userResult).success( function() {
             		//hide submit form
-            		$scope.succesSubmit = true;
+            		$scope.successSubmit = true;
             	});
            
             };

@@ -37,18 +37,24 @@
         text-align: center;
         font-weight: bold;
     }
-	
 	    .choice-success:before { content: 'Right';}
 	    .choice-fail:before { content: 'Wrong';}
 
-.progress { height: 10px;}
-.label { font-size: 90%; }
+.game-progress { height: 10px; margin-bottom: 10px;}
+
+.label { font-size: 80%; }
 .alert {
     padding: 4px 10px;
     margin-bottom: 10px;
 }
 
+.game-over-block h2 {
+	margin: 5px 0 10px;
+}
+	.game-over-block .input-name { display: inline-block; width: 160px;}
+	.game-over-block p { margin: 10px 0; }
+
 .panel-records { padding: 0;}
-    .panel-records table {padding-bottom: 10px;}
+    .panel-records table { margin-bottom: 0;}
         .panel-records th:first-child,
         .panel-records td:first-child { text-align: center; }
