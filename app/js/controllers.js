@@ -22,7 +22,8 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$location', 
                 //receive all cars from json and then shuffling
                 $scope.carsData = shuffle( data );
 
-                $scope.updateGame();
+                //first start only after preloading all images
+                preloadImages( $scope.carsData, $scope.updateGame );
             });
 
             $scope.progressbarLength = function( timeForChoose ){
@@ -197,4 +198,15 @@ function shuffle( array ) {
     }
 
     return array;
+}
+
+function preloadImages( images, callback ) {
+
+    var imageObj = new Image();
+
+    for ( var i = 0, len = images.length; i < len; i++ ) {
+        imageObj.src = images[i].imageUrl;
+    }
+
+    return callback ? callback() : true;
 }

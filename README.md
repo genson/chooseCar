@@ -12,7 +12,6 @@
 
 ##Todo:
 * Preload images
-* Fixed restart button
 * Customize TB3
 * Make pause button
 * Come up with an algorithm that more complicated
