@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3 col-sm-offset-2">
+		<p class="text-center">
+            <span class="label label-success">Score: {{userScore}}</span>
+			<span class="label label-info">Best score: {{bestScore}}</span>
+			<span class="label label-danger">Attempts left: {{attempts}}</span>
+        </p>
+		<p ng-hide="gameEnd">Choose photo of <strong>{{randomCarName}}</strong></p>
+		<div class="progress progress-striped game-progress" ng-hide="timeEnd || gameEnd">
+  			<div class="progress-bar progress-bar-{{progressbar.status}}" style="width: {{progressbar.width}}%">
+	  		</div>
+		</div>
+        <div class="alert alert-danger" ng-show="timeIsUp">
+             <strong>Time is up!</strong> {{attempts}} attempts left!
+        </div>
+	</div>
+	<div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3 col-sm-offset-2">
+		<div ng-repeat="car in cars" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 car-item {{car.flag}}">
+			<img ng-src="{{car.imageUrl}}" alt="" ng-click="checkChoice(car)" />
+		</div>
+		<div class="alert alert-info game-over-block" ng-show="gameEnd">
+			<h2 class="text-center">Game over!</h2>
+            <div class="row text-center">
+                <button class="btn btn-primary" ng-click="restart()">Restart ?</button>
+            </div>
+			<div class="row text-center" ng-hide="successSubmit">
+				<p>or you want to submit score?</p>
+				<input type="text" class="form-control input-name input-sm" placeholder="Input name..." ng-model="userName" />
+				<button class="btn btn-primary btn-sm" ng-click="submitScore()">Submit score &rarr;</button>
+			</div>
+		</div>
+	</div>
+</div>
