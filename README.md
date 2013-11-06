@@ -11,7 +11,8 @@
  - Bootstrap 3
 
 ##Todo:
-* Preload images
+* Preload images ( fix long pause at start )
 * Customize TB3
 * Make pause button
 * Come up with an algorithm that more complicated
+* Tests
