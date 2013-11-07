@@ -30,7 +30,7 @@
             </div>
 			<div class="row text-center" ng-hide="successSubmit">
 				<p>or you want to submit score?</p>
-				<input type="text" class="form-control input-name input-sm" placeholder="Input name..." ng-model="userName" />
+				<input type="text" class="form-control input-name input-sm" ng-class="inputHasError" placeholder="Input name..." ng-model="userName" />
 				<button class="btn btn-primary btn-sm" ng-click="submitScore()">Submit score <i class="icon-pencil"></i></button>
 			</div>
 		</div>

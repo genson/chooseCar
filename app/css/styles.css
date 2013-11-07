@@ -55,7 +55,20 @@
 	margin: 5px 0 10px;
 }
 	.game-over-block .input-name { display: inline-block; width: 160px;}
-	.game-over-block p { margin: 10px 0; }
+		.input-name.has-error { border-color: #b94a48; }
+			.input-name.has-error:focus {
+				border-color: #953b39;
+				box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+			}
+		.input-name.has-success {
+			border-color: #468847;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #7aba7b;
+		}
+
+
+.game-over-block p { margin: 10px 0; }
+
+
 
 .panel-records { padding: 0;}
     .panel-records table { margin-bottom: 0;}
@@ -65,9 +78,9 @@
 
 @font-face {
 	font-family: 'fontello';
-	src: url('../css/font/fontello.eot?50846921');
-	src: url('../css/font/fontello.eot?50846921#iefix') format('embedded-opentype'),
-	url('../css/font/fontello.svg?50846921#fontello') format('svg');
+	src: url('../font/fontello.eot?50846921');
+	src: url('../font/fontello.eot?50846921#iefix') format('embedded-opentype'),
+	url('../font/fontello.svg?50846921#fontello') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
