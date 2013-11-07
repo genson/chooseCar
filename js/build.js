@@ -163,7 +163,15 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$location', 
             };
 
             $scope.submitScore = function(){
-            	
+
+                //check name input
+                if ( !$scope.userName ) {
+                    $scope.inputHasError = 'has-error';
+                    return;
+                } else {
+                    $scope.inputHasError = 'has-success';
+                }
+
             	var userResult = {
             		name: $scope.userName,
             		score: $scope.userScore
