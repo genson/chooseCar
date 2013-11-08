@@ -1,6 +1,9 @@
 'use strict';
 
 var myApp = angular.module('chooseCar', ['ngRoute', 'ngTouch'])
+    .constant('mainSettings',{
+        dbUrl: 'https://carsdb.firebaseio.com/ScoreList.json'
+    })
 	.config(['$routeProvider', '$locationProvider', function( $routeProvider, $locationProvider ) {
         $locationProvider.html5Mode(false);
 		$routeProvider.when('/game', { templateUrl: 'partials/startGame.html', controller: 'StartGameCtrl'});

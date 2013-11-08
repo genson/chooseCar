@@ -2,8 +2,8 @@
 
 /* Controllers */
 
-myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$location', '$window',
-        function( $scope, $http, $timeout, $location, $window){
+myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$window', 'mainSettings',
+        function( $scope, $http, $timeout, $window, mainSettings ){
             $scope.userScore = 0;
             $scope.bestScore = localStorage.getItem("bestScore") || 0;
             $scope.attempts = 3;
@@ -167,7 +167,7 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$location', 
             		score: $scope.userScore
             	};
             
-            	$http.post('https://carsdb.firebaseio.com/ScoreList.json', userResult).success( function() {
+            	$http.post( mainSettings.dbUrl , userResult).success( function() {
             		//hide submit form
             		$scope.successSubmit = true;
             	});
@@ -179,8 +179,8 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$location', 
             };
         }
     ])
-	.controller('RecordsCtrl', [ '$scope', '$http',function( $scope, $http ) {
-		$http.get('https://carsdb.firebaseio.com/ScoreList.json').success( function( data ) {
+	.controller('RecordsCtrl', [ '$scope', '$http', 'mainSettings', function( $scope, $http, mainSettings) {
+		$http.get( mainSettings.dbUrl ).success( function( data ) {
                 var tempArray = [];
                 for ( var x in data ) {
 					tempArray.push( data[x]);
