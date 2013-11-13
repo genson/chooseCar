@@ -3,6 +3,12 @@
 
 * Demo: http://genson.github.io/chooseCar/
 * License: MIT
+* Normally works in:
+ - Chrome, Chrome Mobile
+ - Safari, Safari iOS
+ - Firefox, Firefox OS (Simulator)
+ - Opera
+ - Android
 * Used technologies:
  - AngularJS
  - Web Storage
@@ -11,8 +17,7 @@
  - Bootstrap 3
 
 ##Todo:
-* Preload images ( fix long pause at start )
-* Customize TB3
+* Preload images 
 * Make pause button
 * Come up with an algorithm that more complicated
 * Tests
