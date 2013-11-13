@@ -36,7 +36,12 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$window', 'm
                 $scope.carsData = shuffle( data );
 
                 //first start only after preloading all images
-                preloadImages( $scope.carsData, $scope.updateGame );
+                preloadImages( $scope.carsData );
+
+                //set delay to fix showing images in first drawing
+                $timeout( function(){
+                    $scope.updateGame();
+                }, 300);
             });
 
             $scope.progressbarLength = function( timeForChoose ){
@@ -228,8 +233,6 @@ function preloadImages( images, callback ) {
     for ( var i = 0, len = images.length; i < len; i++ ) {
         imageObj.src = images[i].imageUrl;
     }
-
-    return callback ? callback() : true;
 }
 'use strict';
 
