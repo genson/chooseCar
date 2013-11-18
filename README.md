@@ -17,6 +17,7 @@
  - Bootstrap 3
 
 ##Todo:
+* add grunt-usemin
 * Preload images 
 * Make pause button
 * Come up with an algorithm that more complicated
