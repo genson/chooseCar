@@ -1,6 +1,6 @@
 {
   "name": "choose-a-car",
-  "version" : "0.0.3",
+  "version": "0.0.3",
   "description": "Angular application as a game",
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -12,6 +12,7 @@
     "grunt-remove-logging": "~0.1.1",
     "grunt-imgo": "~0.1.1",
     "grunt-gh-pages": "~0.8.0",
-    "grunt-contrib-copy": "~0.4.1"
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-usemin": "~2.0.2"
   }
 }
