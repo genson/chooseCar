@@ -44,6 +44,11 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$window', 'm
                 }, 300);
             });
 
+            /**
+             * Change width of progressbar
+             *
+             * @param {number} [timeForChoose=10000] - Time to make a choice (ms)
+             */
             $scope.progressbarLength = function( timeForChoose ){
                 var timeForChoose = timeForChoose || 10000,
                     value = $scope.progressbar.width,
@@ -85,7 +90,7 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$window', 'm
                 } else {
 
                     if ( !$scope.gameEnd ) {
-                        //need to fix time for progressbar
+                        // @TODO: Need to fix time for progressbar
                         //call itself for change length of progressbar
                   	    progressbarTimer = $timeout( $scope.progressbarLength, 50);
                     } else {
@@ -121,15 +126,21 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$window', 'm
                 }
             };
 
-            $scope.updateGame = function( /* optional */ score, /* optional */ numberOfCars ) {
+            /** Updating all game blocks
+             *
+             * @param {number} [points=0] - Points to be added to the total bill
+             * @param {number} [numberOfCars=4] - The number of cars participating in one round
+             */
+            $scope.updateGame = function( points, numberOfCars ) {
                 var tempArray = [],
-                    score = score || 0,
+                    points = points || 0,
                     numberOfCars = numberOfCars || 4,
                     randomNumber = Math.floor( Math.random() * numberOfCars );
 
                 //add score
-                $scope.userScore += score;
+                $scope.userScore += points;
 
+                //reset values
                 $scope.timeIsUp = false;
                 $scope.progressbar.width = 0;
 
@@ -201,7 +212,9 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$window', 'm
 		$http.get( mainSettings.dbUrl ).success( function( data ) {
                 var tempArray = [];
                 for ( var x in data ) {
-					tempArray.push( data[x]);
+                    if ( data.hasOwnProperty(x) ){
+					    tempArray.push( data[x]);
+                    }
 				}
 				
 				$scope.scoreList = tempArray;
@@ -211,27 +224,38 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$window', 'm
 
 	}]);
 
-function shuffle( array ) {
-    var i = array.length,
+/**
+ * Mix passed array
+ *
+ * @param {array} arr
+ * @returns {array} mixed array
+ */
+function shuffle( arr ) {
+    var i = arr.length,
         j,
         temp;
 
     while ( --i ) {
         j = Math.floor( Math.random() * (i + 1) );
-        temp = array[ i ];
-        array[ i ] = array[ j ];
-        array[ j ] = temp;
+        temp = arr[ i ];
+        arr[ i ] = arr[ j ];
+        arr[ j ] = temp;
     }
 
-    return array;
+    return arr;
 }
 
-function preloadImages( images, callback ) {
+/**
+ * Preload images of cars
+ *
+ * @param {array} arrWithImages - Array of objects which have image-property
+ */
+function preloadImages( arrWithImages ) {
 
     var imageObj = new Image();
 
-    for ( var i = 0, len = images.length; i < len; i++ ) {
-        imageObj.src = images[i].imageUrl;
+    for ( var i = 0, len = arrWithImages.length; i < len; i++ ) {
+        imageObj.src = arrWithImages[i].imageUrl;
     }
 }
 'use strict';
