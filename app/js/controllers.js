@@ -199,7 +199,9 @@ myApp.controller('StartGameCtrl', [ '$scope', '$http', '$timeout', '$window', 'm
 		$http.get( mainSettings.dbUrl ).success( function( data ) {
                 var tempArray = [];
                 for ( var x in data ) {
-					tempArray.push( data[x]);
+                    if ( data.hasOwnProperty(x) ){
+					    tempArray.push( data[x]);
+                    }
 				}
 				
 				$scope.scoreList = tempArray;
@@ -233,7 +235,7 @@ function shuffle( arr ) {
 /**
  * Preload images of cars
  *
- * @param {array} arrWithImages - Array of objects, with image properties
+ * @param {array} arrWithImages - Array of objects which have image-property
  */
 function preloadImages( arrWithImages ) {
 
