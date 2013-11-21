@@ -2,29 +2,6 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        jshint: {     // описываем как будет проверять наш код - jsHint
-          options: {
-            curly: true,
-            eqeqeq: true,
-            immed: true,
-            latedef: true,
-            newcap: true,
-            noarg: true,
-            sub: true,
-            undef: true,
-            eqnull: true,
-            browser: true,
-            globals: {
-              jQuery: true,
-              $: true,
-              console: true
-            }
-          },
-          '<%= pkg.name %>': {
-            src: [ 'app/js/**/*.js' ]
-          }
-        },
-
         concat: {
             dist: {
                 src: ['app/js/*.js'],
@@ -56,28 +33,10 @@ module.exports = function (grunt) {
             }
         },
 
-        watch: {
-            scripts: {
-                files: ['app/js/*.js'],
-                tasks: ['jshint', 'concat', 'uglify', 'removelogging']
-            },
-            css: {
-                files: ['app/css/*.css'],
-                tasks: ['cssmin']
-            }
-        },
-
         removelogging: {
             dist: {
                 src: "build/js/build.min.js",
                 dest: "build/js/build.min.js"
-            }
-        },
-
-        imgo: {
-            icons: {
-                src: "app/img/*.*",
-                desc: "build/img/"
             }
         },
 
@@ -87,6 +46,7 @@ module.exports = function (grunt) {
             },
             src: ['**']
         },
+
         copy: {
             main: {
                 files: [
@@ -97,17 +57,22 @@ module.exports = function (grunt) {
                     {expand: true, cwd: 'app/', src: ['*.html'], dest: 'build'}
                 ]
             }
+        },
+
+        usemin: {
+            html: ['build/index.html'],
+            options: {
+                dist: 'build'
+            }
         }
 
     });
 
     //use grants plugin for tasks
-    // grunt.loadNpmTasks('grunt-contrib-jshint');
-    // grunt.loadNpmTasks('grunt-contrib-watch');
-    // grunt.loadNpmTasks('grunt-imgo'); //not work on windows
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-usemin');
     grunt.loadNpmTasks('grunt-remove-logging');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-gh-pages');
@@ -115,6 +80,6 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['concat', 'uglify', 'cssmin', 'removelogging']);
 
     //preparing for publish on gh-pages
-    grunt.registerTask('build', [ 'concat', 'removelogging','uglify', 'cssmin', 'copy']);
+    grunt.registerTask('build', [ 'concat', 'removelogging','uglify', 'cssmin', 'copy', 'usemin']);
     grunt.registerTask('pages', ['gh-pages']);
 };
